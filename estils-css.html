@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modificar estilos CSS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Curso de JavaScript</h1>
+    <p class="subtitle">Interacciones con elementos HTML</p>
+  </header>
+
+  <nav class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="contingut-html.html">Modificar contenido HTML</a>
+    <a href="estils-css.html" class="active">Modificar estilos CSS</a>
+    <a href="atributs-html.html">Modificar atributos HTML</a>
+  </nav>
+
+  <main class="content">
+    <h2>Modificar estilos CSS</h2>
+    <p>
+      La propiedad <code>style</code> de un elemento permite cambiar sus
+      <strong>estilos CSS</strong> desde JavaScript. Por ejemplo
+      <code>element.style.color</code>, <code>element.style.fontSize</code> o
+      <code>element.style.backgroundColor</code>.
+    </p>
+
+    <!-- ===== Ejemplo: cambiar varios estilos de un mismo texto ===== -->
+    <div class="demo-box">
+      <h3>Ejemplo: cambiar el estilo de un texto</h3>
+      <p id="texto">Este texto cambiará de estilo al pulsar los botones.</p>
+      <button onclick="cambiarColor()">Color rojo</button>
+      <button onclick="cambiarTamano()">Letra grande</button>
+      <button onclick="cambiarFondo()">Fondo amarillo</button>
+      <button onclick="reiniciar()">Reiniciar</button>
+    </div>
+
+    <h3>Código explicado</h3>
+    <pre>
+// element.style.propiedad cambia un estilo CSS concreto.
+// Las propiedades con guion en CSS (font-size) se escriben
+// en camelCase en JavaScript (fontSize).
+
+function cambiarColor() {
+  document.getElementById("texto").style.color = "red";
+}
+
+function cambiarTamano() {
+  document.getElementById("texto").style.fontSize = "28px";
+}
+
+function cambiarFondo() {
+  document.getElementById("texto").style.backgroundColor = "yellow";
+}
+
+// Vaciando las propiedades, el texto vuelve a su estilo original
+function reiniciar() {
+  var t = document.getElementById("texto");
+  t.style.color = "";
+  t.style.fontSize = "";
+  t.style.backgroundColor = "";
+}
+    </pre>
+  </main>
+
+  <footer class="site-footer">
+    <p>Footer del sitio — Curso de JavaScript © 2026</p>
+  </footer>
+
+  <script>
+    // Cambia el color del texto
+    function cambiarColor() {
+      document.getElementById("texto").style.color = "red";
+    }
+
+    // Cambia el tamaño de la letra (fontSize en camelCase)
+    function cambiarTamano() {
+      document.getElementById("texto").style.fontSize = "28px";
+    }
+
+    // Cambia el color de fondo
+    function cambiarFondo() {
+      document.getElementById("texto").style.backgroundColor = "yellow";
+    }
+
+    // Reinicia los estilos a su valor original
+    function reiniciar() {
+      var t = document.getElementById("texto");
+      t.style.color = "";
+      t.style.fontSize = "";
+      t.style.backgroundColor = "";
+    }
+  </script>
+
+</body>
+</html>
