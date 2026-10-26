@@ -44,6 +44,15 @@
       <button onclick="crearLista()">Generar lista</button>
     </div>
 
+        <!-- ===== Ejemplo 3: añadir contenido sin borrar el anterior ===== -->
+    <div class="demo-box">
+      <h3>Ejemplo 3: añadir contenido con +=</h3>
+      <input type="text" id="nuevaTarea" placeholder="Escribe una tarea"
+             style="padding: 9px; border: 1px solid #d1d5db; border-radius: 6px;">
+      <button onclick="anadirTarea()">Añadir</button>
+      <ul id="tareas" style="margin-top: 12px; margin-left: 22px;"></ul>
+    </div>
+
     <h3>Código explicado</h3>
     <pre>
 // 1. Buscamos el elemento por su id
@@ -57,7 +66,20 @@ function crearLista() {
   document.getElementById("lista").innerHTML =
     "&lt;ul&gt;&lt;li&gt;HTML&lt;/li&gt;&lt;li&gt;CSS&lt;/li&gt;&lt;li&gt;JavaScript&lt;/li&gt;&lt;/ul&gt;";
 }
+
+// Con += AÑADIMOS contenido al final en vez de sustituirlo
+function anadirTarea() {
+  var texto = document.getElementById("nuevaTarea").value;
+  if (texto === "") return;   // si el campo está vacío, no hacemos nada
+  document.getElementById("tareas").innerHTML += "&lt;li&gt;" + texto + "&lt;/li&gt;";
+  document.getElementById("nuevaTarea").value = "";   // vaciamos el input
+}
     </pre>
+      <p>
+      <strong>Ojo:</strong> <code>innerHTML</code> interpreta las etiquetas HTML.
+      Si el texto lo escribe el usuario, es más seguro usar <code>textContent</code>,
+      que lo inserta siempre como texto plano.
+    </p>
   </main>
 
   <footer class="site-footer">
@@ -75,6 +97,14 @@ function crearLista() {
     function crearLista() {
       document.getElementById("lista").innerHTML =
         "<ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>";
+    }
+
+        // Añade una tarea a la lista sin borrar las anteriores (+=)
+    function anadirTarea() {
+      var texto = document.getElementById("nuevaTarea").value;
+      if (texto === "") return;
+      document.getElementById("tareas").innerHTML += "<li>" + texto + "</li>";
+      document.getElementById("nuevaTarea").value = "";
     }
   </script>
 
