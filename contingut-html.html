@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modificar contenido HTML</title>
+  <!-- Ojo: desde pages/ la ruta sube un nivel con ../ -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Curso de JavaScript</h1>
+    <p class="subtitle">Interacciones con elementos HTML</p>
+  </header>
+
+  <nav class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="contingut-html.html" class="active">Modificar contenido HTML</a>
+    <a href="estils-css.html">Modificar estilos CSS</a>
+    <a href="atributs-html.html">Modificar atributos HTML</a>
+  </nav>
+
+  <main class="content">
+    <h2>Modificar contenido HTML</h2>
+    <p>
+      En JavaScript, la propiedad <code>innerHTML</code> permite leer y
+      <strong>cambiar el contenido</strong> de un elemento HTML. Seleccionamos el
+      elemento (por ejemplo con <code>getElementById</code>) y le asignamos un
+      nuevo valor a <code>innerHTML</code>.
+    </p>
+
+    <!-- ===== Ejemplo 1: cambiar el texto de un párrafo ===== -->
+    <div class="demo-box">
+      <h3>Ejemplo 1: cambiar texto</h3>
+      <p id="demo">Soy un párrafo con su texto original.</p>
+      <button onclick="cambiarTexto()">Cambiar el texto</button>
+    </div>
+
+    <!-- ===== Ejemplo 2: generar una lista con innerHTML ===== -->
+    <div class="demo-box">
+      <h3>Ejemplo 2: insertar HTML nuevo</h3>
+      <div id="lista">Aquí aparecerá una lista.</div>
+      <button onclick="crearLista()">Generar lista</button>
+    </div>
+
+    <h3>Código explicado</h3>
+    <pre>
+// 1. Buscamos el elemento por su id
+// 2. Le asignamos un nuevo contenido con innerHTML
+function cambiarTexto() {
+  document.getElementById("demo").innerHTML = "¡El contenido ha cambiado!";
+}
+
+// innerHTML también admite etiquetas HTML, no solo texto plano:
+function crearLista() {
+  document.getElementById("lista").innerHTML =
+    "&lt;ul&gt;&lt;li&gt;HTML&lt;/li&gt;&lt;li&gt;CSS&lt;/li&gt;&lt;li&gt;JavaScript&lt;/li&gt;&lt;/ul&gt;";
+}
+    </pre>
+  </main>
+
+  <footer class="site-footer">
+    <p>Footer del sitio — Curso de JavaScript © 2026</p>
+  </footer>
+
+  <!-- ===== JavaScript de la sección ===== -->
+  <script>
+    // Cambia el contenido de texto del párrafo con id="demo"
+    function cambiarTexto() {
+      document.getElementById("demo").innerHTML = "¡El contenido ha cambiado!";
+    }
+
+    // innerHTML puede insertar etiquetas HTML completas, no solo texto
+    function crearLista() {
+      document.getElementById("lista").innerHTML =
+        "<ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>";
+    }
+  </script>
+
+</body>
+</html>
